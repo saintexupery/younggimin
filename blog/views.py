@@ -23,6 +23,7 @@ def post_new(request):
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             post = form.save()
+            messages.success(request, '새로운 포스트를 등록하였습니다.')
             return redirect('blog:post_list')
     else :
         form = PostForm()
